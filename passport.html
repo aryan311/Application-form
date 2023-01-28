@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Passport Application Form</title> 
+	<style> 
+		/* CSS for form layout */ 
+		form { 
+			width: 400px; 
+			margin: 0 auto; 
+			text-align: center; 
+		} 
+		input[type="text"], input[type="email"], input[type="password"] { 
+			width: 100%; 
+			padding: 12px 20px; 
+			margin: 8px 0; 
+			box-sizing: border-box; 
+			border: 2px solid #ccc; 
+			border-radius: 4px; 
+		} 
+		input[type="submit"] { 
+			width: 100%; 
+			background-color: #4CAF50; 
+			color: white; 
+			padding: 14px 20px; 
+			margin: 8px 0; 
+			border: none; 
+			border-radius: 4px; 
+			cursor: pointer; 
+		} 
+		input[type="submit"]:hover { 
+			background-color: #45a049; 
+		} 
+		.form-container { 
+			border-radius: 5px; 
+			background-color: #f2f2f2; 
+			padding: 20px; 
+		} 
+		/* CSS for Google login button */ 
+		.google-login { 
+			background-color: #dd4b39; 
+			color: white; 
+			padding: 14px 20px; 
+			margin: 8px 0; 
+			border: none; 
+			border-radius: 4px; 
+			cursor: pointer; 
+			display: block; 
+			width: 100%; 
+			text-align: center; 
+		} 
+		.google-login:hover { 
+			background-color: #c23321; 
+		} 
+		/* CSS for animation */ 
+		.fade-in { 
+			animation: fade-in 0.5s; 
+		} 
+		@keyframes fade-in { 
+			from { opacity: 0; } 
+			to { opacity: 1; } 
+		} 
+	</style> 
+	<script> 
+		// JavaScript for Google login 
+		function googleLogin() { 
+			// call Google API for login 
+			// redirect to success page on successful login 
+			// display error message on failure 
+		} 
+		// JavaScript for form validation 
+		function validateForm() { 
+			var name = document.forms["passportForm"]["name"].value; 
+			var email = document.forms["passportForm"]["email"].value; 
+			var password = document.forms["passportForm"]["password"].value;
+            if (name == "") {
+            alert("Name must be filled out");
+            return false;
+            }
+            if (email == "") {
+            alert("Email must be filled out");
+            return false;
+            }
+            if (password == "") {
+            alert("Password must be filled out");
+            return false;
+            }
+            // validate email format
+            var emailFormat = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+            if (!email.match(emailFormat)) {
+            alert("Invalid email format");
+            return false;
+            }
+            }
+            // JavaScript for form animation
+            window.onload = function() {
+            document.querySelector('.form-container').classList.add('fade-in');
+            }
+            </script>
+            
+            </head> 
+            <body> 
+                <form name="passportForm" onsubmit="return validateForm()"> 
+                    <div class="form-container"> 
+                        <h2>Passport Application Form</h2> 
+                        <label for="name">Name:</label> 
+                        <input type="text" id="name" name="name" required> 
+                        <label for="email">Email:</label> 
+                        <input type="email" id="email" name="email" required> 
+                        <label for="password">Password:</label> 
+                        <input type="password" id="password" name="password" required> 
+                        <input type="submit" value="Submit"> 
+                        <hr> 
+                        <button class="google-login" onclick="googleLogin()">Login with Google</button> 
+                    </div> 
+                </form> 
+            </body> 
+            </html>
